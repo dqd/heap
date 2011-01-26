@@ -25,10 +25,10 @@ def check_domain(domain):
             print domain
 
 def generate_name(name, depth):
-    for l in LETTERS:        
+    for letter in LETTERS:        
         if depth > 1:
-            generate_name(name + l, depth - 1)
+            generate_name(name + letter, depth - 1)
         else:
-            check_domain('%s%s.%s' % (name, l, TLD))
+            check_domain('%s%s.%s' % (name, letter, TLD))
 
 generate_name('', LENGTH)
