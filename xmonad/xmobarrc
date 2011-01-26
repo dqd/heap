@@ -1,0 +1,17 @@
+Config { font = "-*-dejavu sans mono-bold-r-normal-*-12-*-*-*-*-*-*-"
+       , bgColor = "#111111"
+       , fgColor = "#ffffff"
+       , position = Static {xpos=0, ypos=776, width=1184, height=24}
+       , lowerOnStart = True
+       , commands = [ Run StdinReader
+                    , Run Weather "LKTB" ["-t", "<tempC> °C", "-L", "15", "-H", "25", "--normal", "green", "--high", "red", "--low", "lightblue"] 3600
+                    , Run Network "wlan0" ["-t", "<dev>: <rx>, <tx>", "-L", "0", "-H", "1024", "--normal", "green", "--high", "red"] 10
+                    , Run Cpu ["-t", "CPU: <total>", "-L", "3", "-H", "50", "--normal", "green", "--high", "red"] 10
+                    , Run Memory ["-t", "Mem: <usedratio> %"] 10
+                    , Run Date "%d. %m. %Y, %H:%M:%S" "date" 10
+                    , Run BatteryP ["BAT0"] ["-L", "25", "-H", "75", "--low", "red", "--high", "green"] 60
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %battery% | %wlan0% | %LKTB% | <fc=#c0c0c0>%date%</fc>"
+       }
