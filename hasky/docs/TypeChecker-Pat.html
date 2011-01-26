@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--Rendered using the Haskell Html Library v0.2-->
+<HTML
+><HEAD
+><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"
+><TITLE
+>TypeChecker.Pat</TITLE
+><LINK HREF="haddock.css" REL="stylesheet" TYPE="text/css"
+><SCRIPT SRC="haddock-util.js" TYPE="text/javascript"
+></SCRIPT
+><SCRIPT TYPE="text/javascript"
+>window.onload = function () {setSynopsis("mini_TypeChecker-Pat.html")};</SCRIPT
+></HEAD
+><BODY
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="topbar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><IMG SRC="haskell_icon.gif" WIDTH="16" HEIGHT="16" ALT=" "
+></TD
+><TD CLASS="title"
+>Hasky</TD
+><TD CLASS="topbut"
+><A HREF="index.html"
+>Contents</A
+></TD
+><TD CLASS="topbut"
+><A HREF="doc-index.html"
+>Index</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="modulebar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><FONT SIZE="6"
+>TypeChecker.Pat</FONT
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Documentation</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+>  <A NAME="t%3APat"
+></A
+><B
+>Pat</B
+>  </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="section4"
+>Constructors</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+><A NAME="v%3APVar"
+></A
+><B
+>PVar</B
+> <A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3APWildcard"
+></A
+><B
+>PWildcard</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3APAs"
+></A
+><B
+>PAs</B
+> <A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+> <A HREF="TypeChecker-Pat.html#t%3APat"
+>Pat</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3APLit"
+></A
+><B
+>PLit</B
+> <A HREF="TypeChecker-Lit.html#t%3ALiteral"
+>Literal</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3APNpk"
+></A
+><B
+>PNpk</B
+> <A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+> Integer</TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3APCon"
+></A
+><B
+>PCon</B
+> <A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+> [<A HREF="TypeChecker-Pat.html#t%3APat"
+>Pat</A
+>]</TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3APLazy"
+></A
+><B
+>PLazy</B
+> <A HREF="TypeChecker-Pat.html#t%3APat"
+>Pat</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:Pat')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:Pat" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> <A HREF="TypeChecker-Pat.html#t%3APat"
+>Pat</A
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiPat"
+></A
+><B
+>tiPat</B
+> :: <A HREF="TypeChecker-Pat.html#t%3APat"
+>Pat</A
+> -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> ([<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>], [<A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+>], <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+>)</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiPats"
+></A
+><B
+>tiPats</B
+> :: [<A HREF="TypeChecker-Pat.html#t%3APat"
+>Pat</A
+>] -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> ([<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>], [<A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+>], [<A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+>])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="botbar"
+>Produced by <A HREF="http://www.haskell.org/haddock/"
+>Haddock</A
+> version 2.4.1</TD
+></TR
+></TABLE
+></BODY
+></HTML
+>

@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--Rendered using the Haskell Html Library v0.2-->
+<HTML
+><HEAD
+><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"
+><TITLE
+>TypeChecker.Subst</TITLE
+><LINK HREF="haddock.css" REL="stylesheet" TYPE="text/css"
+><SCRIPT SRC="haddock-util.js" TYPE="text/javascript"
+></SCRIPT
+><SCRIPT TYPE="text/javascript"
+>window.onload = function () {setSynopsis("mini_TypeChecker-Subst.html")};</SCRIPT
+></HEAD
+><BODY
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="topbar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><IMG SRC="haskell_icon.gif" WIDTH="16" HEIGHT="16" ALT=" "
+></TD
+><TD CLASS="title"
+>Hasky</TD
+><TD CLASS="topbut"
+><A HREF="index.html"
+>Contents</A
+></TD
+><TD CLASS="topbut"
+><A HREF="doc-index.html"
+>Index</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="modulebar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><FONT SIZE="6"
+>TypeChecker.Subst</FONT
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Documentation</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3ASubst"
+></A
+><B
+>Subst</B
+> = [(<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>, <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+>)]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AnullSubst"
+></A
+><B
+>nullSubst</B
+> :: <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3A%2B-%3E"
+></A
+><B
+>(+-&gt;)</B
+> :: <A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+> -&gt; <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+> -&gt; <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>class</SPAN
+>  <A NAME="t%3ATypes"
+></A
+><B
+>Types</B
+> t  <SPAN CLASS="keyword"
+>where</SPAN
+></TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+>Methods</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aapply"
+></A
+><B
+>apply</B
+> :: <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+> -&gt; t -&gt; t</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Atv"
+></A
+><B
+>tv</B
+> :: t -&gt; [<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>]</TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:Types')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:Types" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-Subst.html#t%3ATypes"
+>Types</A
+> <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-Subst.html#t%3ATypes"
+>Types</A
+> <A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-Subst.html#t%3ATypes"
+>Types</A
+> <A HREF="TypeChecker-Scheme.html#t%3AScheme"
+>Scheme</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-Subst.html#t%3ATypes"
+>Types</A
+> <A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-Subst.html#t%3ATypes"
+>Types</A
+> a =&gt; <A HREF="TypeChecker-Subst.html#t%3ATypes"
+>Types</A
+> ([] a)</TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-Subst.html#t%3ATypes"
+>Types</A
+> t =&gt; <A HREF="TypeChecker-Subst.html#t%3ATypes"
+>Types</A
+> (<A HREF="TypeChecker-Pred.html#t%3AQual"
+>Qual</A
+> t)</TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3A%40%40"
+></A
+><B
+>(@@)</B
+> :: <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+> -&gt; <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+> -&gt; <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Amerge"
+></A
+><B
+>merge</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Control-Monad.html#t%3AMonad"
+>Monad</A
+> m =&gt; <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+> -&gt; <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+> -&gt; m <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="botbar"
+>Produced by <A HREF="http://www.haskell.org/haddock/"
+>Haddock</A
+> version 2.4.1</TD
+></TR
+></TABLE
+></BODY
+></HTML
+>

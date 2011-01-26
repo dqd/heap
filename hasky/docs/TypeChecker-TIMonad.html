@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--Rendered using the Haskell Html Library v0.2-->
+<HTML
+><HEAD
+><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"
+><TITLE
+>TypeChecker.TIMonad</TITLE
+><LINK HREF="haddock.css" REL="stylesheet" TYPE="text/css"
+><SCRIPT SRC="haddock-util.js" TYPE="text/javascript"
+></SCRIPT
+><SCRIPT TYPE="text/javascript"
+>window.onload = function () {setSynopsis("mini_TypeChecker-TIMonad.html")};</SCRIPT
+></HEAD
+><BODY
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="topbar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><IMG SRC="haskell_icon.gif" WIDTH="16" HEIGHT="16" ALT=" "
+></TD
+><TD CLASS="title"
+>Hasky</TD
+><TD CLASS="topbut"
+><A HREF="index.html"
+>Contents</A
+></TD
+><TD CLASS="topbut"
+><A HREF="doc-index.html"
+>Index</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="modulebar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><FONT SIZE="6"
+>TypeChecker.TIMonad</FONT
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Documentation</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>newtype</SPAN
+>  <A NAME="t%3ATI"
+></A
+><B
+>TI</B
+> a </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="section4"
+>Constructors</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+><A NAME="v%3ATI"
+></A
+><B
+>TI</B
+> (<A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/ghc-prim/GHC-Types.html#t%3AInt"
+>Int</A
+> -&gt; (<A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+>, <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/ghc-prim/GHC-Types.html#t%3AInt"
+>Int</A
+>, a))</TD
+><TD CLASS="rdoc"
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:TI')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:TI" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Control-Monad.html#t%3AMonad"
+>Monad</A
+> <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3ArunTI"
+></A
+><B
+>runTI</B
+> ::  <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> a -&gt; a</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetSubst"
+></A
+><B
+>getSubst</B
+> :: <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aunify"
+></A
+><B
+>unify</B
+> :: <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+> -&gt; <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+> -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Artim"
+></A
+><B
+>rtim</B
+> :: [<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>] -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AextSubst"
+></A
+><B
+>extSubst</B
+> :: <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+> -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AnewTVar"
+></A
+><B
+>newTVar</B
+> :: <A HREF="TypeChecker-Kind.html#t%3AKind"
+>Kind</A
+> -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AfreshInst"
+></A
+><B
+>freshInst</B
+> :: <A HREF="TypeChecker-Scheme.html#t%3AScheme"
+>Scheme</A
+> -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> (<A HREF="TypeChecker-Pred.html#t%3AQual"
+>Qual</A
+> <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+>)</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>class</SPAN
+>  <A NAME="t%3AInstantiate"
+></A
+><B
+>Instantiate</B
+> t  <SPAN CLASS="keyword"
+>where</SPAN
+></TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+>Methods</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Ainst"
+></A
+><B
+>inst</B
+> :: [<A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+>] -&gt; t -&gt; t</TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:Instantiate')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:Instantiate" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-TIMonad.html#t%3AInstantiate"
+>Instantiate</A
+> <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-TIMonad.html#t%3AInstantiate"
+>Instantiate</A
+> <A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-TIMonad.html#t%3AInstantiate"
+>Instantiate</A
+> a =&gt; <A HREF="TypeChecker-TIMonad.html#t%3AInstantiate"
+>Instantiate</A
+> ([] a)</TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="TypeChecker-TIMonad.html#t%3AInstantiate"
+>Instantiate</A
+> t =&gt; <A HREF="TypeChecker-TIMonad.html#t%3AInstantiate"
+>Instantiate</A
+> (<A HREF="TypeChecker-Pred.html#t%3AQual"
+>Qual</A
+> t)</TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="botbar"
+>Produced by <A HREF="http://www.haskell.org/haddock/"
+>Haddock</A
+> version 2.4.1</TD
+></TR
+></TABLE
+></BODY
+></HTML
+>

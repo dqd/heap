@@ -1,0 +1,665 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--Rendered using the Haskell Html Library v0.2-->
+<HTML
+><HEAD
+><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"
+><TITLE
+>TypeChecker.TIMain</TITLE
+><LINK HREF="haddock.css" REL="stylesheet" TYPE="text/css"
+><SCRIPT SRC="haddock-util.js" TYPE="text/javascript"
+></SCRIPT
+><SCRIPT TYPE="text/javascript"
+>window.onload = function () {setSynopsis("mini_TypeChecker-TIMain.html")};</SCRIPT
+></HEAD
+><BODY
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="topbar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><IMG SRC="haskell_icon.gif" WIDTH="16" HEIGHT="16" ALT=" "
+></TD
+><TD CLASS="title"
+>Hasky</TD
+><TD CLASS="topbut"
+><A HREF="index.html"
+>Contents</A
+></TD
+><TD CLASS="topbut"
+><A HREF="doc-index.html"
+>Index</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="modulebar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><FONT SIZE="6"
+>TypeChecker.TIMain</FONT
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Documentation</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+>  <A NAME="t%3AExpr"
+></A
+><B
+>Expr</B
+>  </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="section4"
+>Constructors</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AVar"
+></A
+><B
+>Var</B
+> <A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3ALit"
+></A
+><B
+>Lit</B
+> <A HREF="TypeChecker-Lit.html#t%3ALiteral"
+>Literal</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AConst"
+></A
+><B
+>Const</B
+> <A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AAp"
+></A
+><B
+>Ap</B
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3ALet"
+></A
+><B
+>Let</B
+> <A HREF="TypeChecker-TIMain.html#t%3ABindGroup"
+>BindGroup</A
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3ALam"
+></A
+><B
+>Lam</B
+> <A HREF="TypeChecker-TIMain.html#t%3AAlt"
+>Alt</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AIf"
+></A
+><B
+>If</B
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3ACase"
+></A
+><B
+>Case</B
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+> [(<A HREF="TypeChecker-Pat.html#t%3APat"
+>Pat</A
+>, <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+>)]</TD
+><TD CLASS="rdoc"
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:Expr')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:Expr" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtoBg"
+></A
+><B
+>toBg</B
+> :: [(<A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+>, <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Maybe.html#t%3AMaybe"
+>Maybe</A
+> <A HREF="TypeChecker-Scheme.html#t%3AScheme"
+>Scheme</A
+>, [<A HREF="TypeChecker-TIMain.html#t%3AAlt"
+>Alt</A
+>])] -&gt; <A HREF="TypeChecker-TIMain.html#t%3ABindGroup"
+>BindGroup</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiExpr"
+></A
+><B
+>tiExpr</B
+> :: <A HREF="TypeChecker-Infer.html#t%3AInfer"
+>Infer</A
+> <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+> <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3AAlt"
+></A
+><B
+>Alt</B
+> = ([<A HREF="TypeChecker-Pat.html#t%3APat"
+>Pat</A
+>], <A HREF="TypeChecker-TIMain.html#t%3AExpr"
+>Expr</A
+>)</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiAlt"
+></A
+><B
+>tiAlt</B
+> :: <A HREF="TypeChecker-Infer.html#t%3AInfer"
+>Infer</A
+> <A HREF="TypeChecker-TIMain.html#t%3AAlt"
+>Alt</A
+> <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiAlts"
+></A
+><B
+>tiAlts</B
+> :: <A HREF="TypeChecker-Pred.html#t%3AClassEnv"
+>ClassEnv</A
+> -&gt; [<A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+>] -&gt; [<A HREF="TypeChecker-TIMain.html#t%3AAlt"
+>Alt</A
+>] -&gt; <A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+> -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Asplit"
+></A
+><B
+>split</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Control-Monad.html#t%3AMonad"
+>Monad</A
+> m =&gt; <A HREF="TypeChecker-Pred.html#t%3AClassEnv"
+>ClassEnv</A
+> -&gt; [<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>] -&gt; [<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>] -&gt; [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>] -&gt; m ([<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>], [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3AAmbiguity"
+></A
+><B
+>Ambiguity</B
+> = (<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>, [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aambiguities"
+></A
+><B
+>ambiguities</B
+> :: <A HREF="TypeChecker-Pred.html#t%3AClassEnv"
+>ClassEnv</A
+> -&gt; [<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>] -&gt; [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>] -&gt; [<A HREF="TypeChecker-TIMain.html#t%3AAmbiguity"
+>Ambiguity</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AnumClasses"
+></A
+><B
+>numClasses</B
+> :: [<A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AstdClasses"
+></A
+><B
+>stdClasses</B
+> :: [<A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Acandidates"
+></A
+><B
+>candidates</B
+> :: <A HREF="TypeChecker-Pred.html#t%3AClassEnv"
+>ClassEnv</A
+> -&gt; <A HREF="TypeChecker-TIMain.html#t%3AAmbiguity"
+>Ambiguity</A
+> -&gt; [<A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AwithDefaults"
+></A
+><B
+>withDefaults</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Control-Monad.html#t%3AMonad"
+>Monad</A
+> m =&gt; ([<A HREF="TypeChecker-TIMain.html#t%3AAmbiguity"
+>Ambiguity</A
+>] -&gt; [<A HREF="TypeChecker-Type.html#t%3AType"
+>Type</A
+>] -&gt; a) -&gt; <A HREF="TypeChecker-Pred.html#t%3AClassEnv"
+>ClassEnv</A
+> -&gt; [<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>] -&gt; [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>] -&gt; m a</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AdefaultedPreds"
+></A
+><B
+>defaultedPreds</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Control-Monad.html#t%3AMonad"
+>Monad</A
+> m =&gt; <A HREF="TypeChecker-Pred.html#t%3AClassEnv"
+>ClassEnv</A
+> -&gt; [<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>] -&gt; [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>] -&gt; m [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AdefaultSubst"
+></A
+><B
+>defaultSubst</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Control-Monad.html#t%3AMonad"
+>Monad</A
+> m =&gt; <A HREF="TypeChecker-Pred.html#t%3AClassEnv"
+>ClassEnv</A
+> -&gt; [<A HREF="TypeChecker-Type.html#t%3ATyvar"
+>Tyvar</A
+>] -&gt; [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>] -&gt; m <A HREF="TypeChecker-Subst.html#t%3ASubst"
+>Subst</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3AExpl"
+></A
+><B
+>Expl</B
+> = (<A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+>, <A HREF="TypeChecker-Scheme.html#t%3AScheme"
+>Scheme</A
+>, [<A HREF="TypeChecker-TIMain.html#t%3AAlt"
+>Alt</A
+>])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiExpl"
+></A
+><B
+>tiExpl</B
+> :: <A HREF="TypeChecker-Pred.html#t%3AClassEnv"
+>ClassEnv</A
+> -&gt; [<A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+>] -&gt; <A HREF="TypeChecker-TIMain.html#t%3AExpl"
+>Expl</A
+> -&gt; <A HREF="TypeChecker-TIMonad.html#t%3ATI"
+>TI</A
+> [<A HREF="TypeChecker-Pred.html#t%3APred"
+>Pred</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3AImpl"
+></A
+><B
+>Impl</B
+> = (<A HREF="TypeChecker-Id.html#t%3AId"
+>Id</A
+>, [<A HREF="TypeChecker-TIMain.html#t%3AAlt"
+>Alt</A
+>])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Arestricted"
+></A
+><B
+>restricted</B
+> :: [<A HREF="TypeChecker-TIMain.html#t%3AImpl"
+>Impl</A
+>] -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/ghc-prim/GHC-Bool.html#t%3ABool"
+>Bool</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiImpls"
+></A
+><B
+>tiImpls</B
+> :: <A HREF="TypeChecker-Infer.html#t%3AInfer"
+>Infer</A
+> [<A HREF="TypeChecker-TIMain.html#t%3AImpl"
+>Impl</A
+>] [<A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3ABindGroup"
+></A
+><B
+>BindGroup</B
+> = ([<A HREF="TypeChecker-TIMain.html#t%3AExpl"
+>Expl</A
+>], [[<A HREF="TypeChecker-TIMain.html#t%3AImpl"
+>Impl</A
+>]])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiBindGroup"
+></A
+><B
+>tiBindGroup</B
+> :: <A HREF="TypeChecker-Infer.html#t%3AInfer"
+>Infer</A
+> <A HREF="TypeChecker-TIMain.html#t%3ABindGroup"
+>BindGroup</A
+> [<A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AtiSeq"
+></A
+><B
+>tiSeq</B
+> ::  <A HREF="TypeChecker-Infer.html#t%3AInfer"
+>Infer</A
+> bg [<A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+>] -&gt; <A HREF="TypeChecker-Infer.html#t%3AInfer"
+>Infer</A
+> [bg] [<A HREF="TypeChecker-Assump.html#t%3AAssump"
+>Assump</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="botbar"
+>Produced by <A HREF="http://www.haskell.org/haddock/"
+>Haddock</A
+> version 2.4.1</TD
+></TR
+></TABLE
+></BODY
+></HTML
+>

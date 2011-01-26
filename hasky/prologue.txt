@@ -1,0 +1,1 @@
+Hasky is a Haskell interpreter. It is not completed yet -- the evaluating part is missing. Take a look at the project page at <http://hasky.haskell.cz/>.

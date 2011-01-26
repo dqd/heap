@@ -1,0 +1,23 @@
+Hasky, the Haskell interpreter
+
+This is just a base for evaluation that handles parsing and type-checking.
+It was described in my bachelor thesis called Syntactic analysis and type
+evaluation in Haskell. The future goal is to create a stepwise interpreter
+which can be used for teaching purposes.
+
+Tested with GHC 6.6 and 6.10.1. Code depends on Language.Haskell library
+(package libghc6-haskell-src-dev on Debian Linux; haskell-src otherwise).
+Just type "make" to the command line and the binary file "hasky" should
+be compiled. The directory "tests" is intended for user scripts.
+
+Known bugs: older versions of GHC (prior to 6.6.1) are not able to parse
+the foreign function definitions (the FFI library) so that parse errors
+can come along. GHC 6.8.1 or newer is recommended.
+
+The type-checker is able to parse just some basic expressions like infix
+functions (and the type-checking is sometimes wrong anyway). Also, it
+fails and exit the application instead of printing message.
+
+
+Created by Pavel Dvorak
+http://hasky.haskell.cz/

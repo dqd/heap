@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--Rendered using the Haskell Html Library v0.2-->
+<HTML
+><HEAD
+><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"
+><TITLE
+>Parser</TITLE
+><LINK HREF="haddock.css" REL="stylesheet" TYPE="text/css"
+><SCRIPT SRC="haddock-util.js" TYPE="text/javascript"
+></SCRIPT
+><SCRIPT TYPE="text/javascript"
+>window.onload = function () {setSynopsis("mini_Parser.html")};</SCRIPT
+></HEAD
+><BODY
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="topbar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><IMG SRC="haskell_icon.gif" WIDTH="16" HEIGHT="16" ALT=" "
+></TD
+><TD CLASS="title"
+>Hasky</TD
+><TD CLASS="topbut"
+><A HREF="index.html"
+>Contents</A
+></TD
+><TD CLASS="topbut"
+><A HREF="doc-index.html"
+>Index</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="modulebar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><FONT SIZE="6"
+>Parser</FONT
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Description</TD
+></TR
+><TR
+><TD CLASS="doc"
+>Parsing module
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Synopsis</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AparseString"
+>parseString</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AparseFile"
+>parseFile</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AparseShow"
+>parseShow</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetDecl"
+>getDecl</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; [<A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsDecl"
+>HsDecl</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetResult"
+>getResult</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsDecl"
+>HsDecl</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsExp"
+>HsExp</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetImports"
+>getImports</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; [<A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetFunctions"
+>getFunctions</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; [<A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetModuleName"
+>getModuleName</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetFunBody"
+>getFunBody</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; [<A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsDecl"
+>HsDecl</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetFunType"
+>getFunType</A
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsDecl"
+>HsDecl</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Documentation</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AparseString"
+></A
+><B
+>parseString</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+>Take a string and parse it.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AparseFile"
+></A
+><B
+>parseFile</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+>Take a name of a module, content of the module and parse it.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AparseShow"
+></A
+><B
+>parseShow</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+>Show the result of parsing.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetDecl"
+></A
+><B
+>getDecl</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; [<A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsDecl"
+>HsDecl</A
+>]</TD
+></TR
+><TR
+><TD CLASS="doc"
+>Throw away the unimportant parts and get module declarations.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetResult"
+></A
+><B
+>getResult</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsDecl"
+>HsDecl</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsExp"
+>HsExp</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+>Throw away the unimportant parts and get parsing result.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetImports"
+></A
+><B
+>getImports</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; [<A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+>]</TD
+></TR
+><TR
+><TD CLASS="doc"
+>Get a list of imported modules in a Haskell modules.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetFunctions"
+></A
+><B
+>getFunctions</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; [<A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+>]</TD
+></TR
+><TR
+><TD CLASS="doc"
+>Get names of all defined (either body or type is enough)
+  functions in the module.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetModuleName"
+></A
+><B
+>getModuleName</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+>Throw away the unimportant parts and get actual module name.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetFunBody"
+></A
+><B
+>getFunBody</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; [<A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsDecl"
+>HsDecl</A
+>]</TD
+></TR
+><TR
+><TD CLASS="doc"
+>Get definition of the requested function.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetFunType"
+></A
+><B
+>getFunType</B
+> :: <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsModule"
+>HsModule</A
+> -&gt; <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> <A HREF="http://haskell.org/ghc/docs/latest/html/libraries/haskell-src/Language-Haskell-Syntax.html#t%3AHsDecl"
+>HsDecl</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+>Get type signature of the requested function. If it is not
+  available, return the error message.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="botbar"
+>Produced by <A HREF="http://www.haskell.org/haddock/"
+>Haddock</A
+> version 2.4.1</TD
+></TR
+></TABLE
+></BODY
+></HTML
+>

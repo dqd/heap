@@ -1,0 +1,18 @@
+Created by Thomas Hallgren (project "A Lexer for Haskell in Haskell")
+
+http://ogi.altocumulus.org/~hallgren/Talks/LHiH/base/tests/HaskellLibraries/
+
+-----
+
+Derived from "The Haskell 98 Language and Libraries Revised Report" that
+is distributed under the following license:
+
+Copyright (c) Simon Peyton Jones.
+The authors intend this Report to belong to the entire Haskell community,
+and so we grant permission to copy and distribute it for any purpose,
+provided that it is reproduced in its entirety, including this Notice.
+Modified versions of this Report may also be copied and distributed for any
+purpose, provided that the modified version is clearly presented as such,
+and that it does not claim to be a definition of the language Haskell 98.
+
+Available at http://haskell.org/onlinereport/
