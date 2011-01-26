@@ -118,7 +118,7 @@ def cky(sentence, verbose):
         terminals = grammar.productions(lhs=x)
         
         if not terminals:
-            print 'Error: a correct terminal for the neterminal \'%s\' cannot be found.' % x
+            print 'Error: a correct terminal for the nonterminal \'%s\' cannot be found.' % x
             sys.exit(1)
 
         return grammar.productions(rhs=terminals[0].rhs()[0])
