@@ -1,0 +1,3 @@
+Oprava kódování názvu souborů při přenosu Linux -> Windows, například přes TAR. Zdrojový kód programu je v kódování CP-1250. Použití na vlastní nebezpečí.
+
+Známé chyby: detekce kódování není univerzální, funguje jenom pro některé kombinace znaků.
