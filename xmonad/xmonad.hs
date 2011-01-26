@@ -34,8 +34,7 @@ myManageHook = composeAll
     , title =? "VLC (XVideo output)" --> doFloat
     ] where role = stringProperty "WM_WINDOW_ROLE"
 
-myLayout = let tiled = Tall 1 (3/100) (1/2)
-           in Full ||| tiled
+myLayout = Full ||| (Tall 1 (3/100) (1/2))
 
 myConfig = defaultXPConfig { font="-*-dejavu sans mono-bold-r-normal-*-12-*-*-*-*-*-*-"
                            , bgColor="#111111"
