@@ -7,7 +7,7 @@ if [ $# != 1 ]; then
     exit 1
 fi
 
-id3 () {
+id3() {
     tag=`id3info "$1" | grep $2 | head -n 1`
     if [ -z "$tag" ]; then
         tag=`echo "$1" | cut -d/ -f$3`
@@ -29,15 +29,7 @@ find $1 -type d | while read dir; do
         id3tag -s"$artist" -a"$album" "$tmp" > /dev/null
         normalize-mp3 --bitrate `mp3info -r m -p %r "$tmp"` "$tmp" &> /dev/null
         final="$1/$artist -- $album.mp3"
-        vbrfix "$tmp" "$final" &> /dev/null
-
-        if [ -e "$final" ]; then
-            rm "$tmp"
-        else
-            mv "$tmp" "$final"
-        fi
-
-        rm vbrfix.{log,tmp} &> /dev/null
+        mv "$tmp" "$final"
         echo "$final"
     fi
 done
