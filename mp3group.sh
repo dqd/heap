@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# != 1 ]; then
-    echo "Group mp3 files by the album and normalize them."
+    echo "Group mp3 files by the album."
     echo "The directory structure is expected to be: dir/artist/album/*.mp3"
     echo "Usage: $0 <dir>"
     exit 1
@@ -27,9 +27,16 @@ find $1 -type d | while read dir; do
         tmp="$1/tmp.mp3"
         cat "$dir/"*.mp3 > "$tmp"
         id3tag -s"$artist" -a"$album" "$tmp" > /dev/null
-        normalize-mp3 --bitrate `mp3info -r m -p %r "$tmp"` "$tmp" &> /dev/null
         final="$1/$artist -- $album.mp3"
-        mv "$tmp" "$final"
+        vbrfix "$tmp" "$final" &> /dev/null
+
+        if [ -e "$final" ]; then
+            rm "$tmp"
+        else
+            mv "$tmp" "$final"
+        fi
+
+        rm vbrfix.{log,tmp} &> /dev/null
         echo "$final"
     fi
 done
