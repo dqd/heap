@@ -12,10 +12,12 @@ f = open(sys.argv[1], 'r')
 c = f.read()
 f.close()
 
-s1 = c.split(SEPARATOR)
-s2 = s1[-1].split(SEPARATOR[0] * 2, 2)
+s = c.split(SEPARATOR)
 
-content = SEPARATOR[1] + s2[0] + SEPARATOR + SEPARATOR.join(s1[:-1][::-1]) + SEPARATOR[0] * 2 + s2[1]
+while '' in s:
+	s.remove('')
+
+content = SEPARATOR[1] + SEPARATOR.join(s[::-1])
 
 f = open(sys.argv[1], 'w')
 f.write(content)
