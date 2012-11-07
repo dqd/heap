@@ -33,7 +33,7 @@ decorations none
 fuzzy_edges 0
 
 # geometry <geometry>        # tray's geometry in standard X notation
-geometry 96x24-0-0
+geometry 4x1-0-0
 
 # grow_gravity <gravity>     # one of N, S, E, W, NW, NE, SW, SE; tray will grow
                              # in the direction opposite to one specified by
@@ -50,13 +50,13 @@ icon_size 24
 
 # ignore_icon_resize [<bool>] # ignore icon attempts to resize their windows
                              # (NEW in 0.7)
-ignore_icon_resize false
+#ignore_icon_resize false
 
 # max_width <int>            # specifies maximal tray's width (0 = no limit)
-max_width 0
+#max_width 0
 
 # max_height <int>           # specifies maximal tray's height (0 = no limit)
-max_height 0
+#max_height 0
 
 # no_shrink [<bool>]         # disables shrink-back mode (NEW in 0.7)
 no_shrink false
@@ -69,7 +69,7 @@ parent_bg false
 # pixmap_bg /home/user/.stalonetraybg.xpm
 
 # respect_icon_hints [<bool>] # try to respect icon hints (NEW in 0.7)
-respect_icon_hints true
+kludges use_icons_hints
 
 # skip_taskbar [<bool>]      # hide tray`s window from the taskbar
 skip_taskbar true
@@ -101,9 +101,11 @@ window_layer normal
                              # dock, normal, toolbar, utility
 window_type dock
 
+window_strut none
+
 # withdrawn [<bool>]         # start withdrawn (NEW in 0.7, prior to that
                              # withdrawn mode was default!)
-withdrawn false
+dockapp_mode none
 
 # xsync [<bool>]             # whether to operate on X server synchronously (SLOOOOW)
 xsync false
