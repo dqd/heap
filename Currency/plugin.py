@@ -5,6 +5,13 @@ import requests
 from supybot.commands import *
 import supybot.callbacks as callbacks
 
+try:
+    from alpha_vantage.foreignexchange import ForeignExchange
+except ImportError:
+    ALPHA_VANTAGE = False
+else:
+    ALPHA_VANTAGE = True
+
 
 class Currency(callbacks.Plugin):
     SYMBOLS = {
@@ -27,16 +34,28 @@ class Currency(callbacks.Plugin):
         Converts from <currency1> to <currency2>. If amount is not given,
         it defaults to 1.
         '''
+        api_key = self.registryValue('api_key')
+
         c1 = self._normalize(c1)
         c2 = self._normalize(c2)
 
         rate = None
 
         try:
-            r = requests.get('http://api.fixer.io/latest?base={}'.format(c1))
+            if ALPHA_VANTAGE and api_key:
+                fe = ForeignExchange(key=api_key)
+                r, _ =fe.get_currency_exchange_rate(
+                    from_currency=c1,
+                    to_currency=c2,
+                )
+                rate = float(r.get('5. Exchange Rate', 0))
+            else:
+                r = requests.get(
+                    'http://api.fixer.io/latest?base={}'.format(c1)
+                )
 
-            if r.ok:
-                rate = r.json().get('rates', {}).get(c2)
+                if r.ok:
+                    rate = r.json().get('rates', {}).get(c2)
         except Exception as e:
             irc.error(unicode(e), Raise=True)
 
