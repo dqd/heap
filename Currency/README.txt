@@ -1,0 +1,1 @@
+Another Supybot Currency plugin, this time based on Fixer.io API.
