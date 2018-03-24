@@ -20,6 +20,40 @@ class Currency(callbacks.Plugin):
         '¥': 'JPY',
         '£': 'GBP',
     }
+    AVAILABLE_CURRENCIES = (
+        'AUD',
+        'BGN',
+        'BRL',
+        'CAD',
+        'CHF',
+        'CNY',
+        'CZK',
+        'DKK',
+        'EUR',
+        'GBP',
+        'HKD',
+        'HRK',
+        'HUF',
+        'IDR',
+        'ILS',
+        'INR',
+        'ISK',
+        'JPY',
+        'KRW',
+        'MXN',
+        'MYR',
+        'NOK',
+        'NZD',
+        'PLN',
+        'RON',
+        'RUB',
+        'SEK',
+        'SGD',
+        'THB',
+        'TRY',
+        'USD',
+        'ZAR',
+    )
 
     @staticmethod
     def _normalize(c):
@@ -42,9 +76,11 @@ class Currency(callbacks.Plugin):
         rate = None
 
         try:
-            if ALPHA_VANTAGE and api_key:
+            if ALPHA_VANTAGE and api_key and \
+                (c1 not in Currency.AVAILABLE_CURRENCIES or
+                 c2 not in Currency.AVAILABLE_CURRENCIES):
                 fe = ForeignExchange(key=api_key)
-                r, _ =fe.get_currency_exchange_rate(
+                r, _ = fe.get_currency_exchange_rate(
                     from_currency=c1,
                     to_currency=c2,
                 )

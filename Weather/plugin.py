@@ -11,6 +11,7 @@ from apixu.client import ApixuClient
 class Weather(callbacks.Plugin):
     PLACES = {
         'praha': 'Prague',
+        'pilsen': 'Plzen',
     }
 
     def weather(self, irc, msg, args, place):
