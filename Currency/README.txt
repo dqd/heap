@@ -1,4 +1,4 @@
-Another Supybot Currency plugin, this time based on Fixer.io/Alpha Vantage API.
+Another Supybot Currency plugin, this time based on Frankfurter.app/Alpha Vantage API.
 
 If you want to use Alpha Vantage API, which has more capabilities, you need to:
 

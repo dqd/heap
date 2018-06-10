@@ -87,7 +87,7 @@ class Currency(callbacks.Plugin):
                 rate = float(r.get('5. Exchange Rate', 0))
             else:
                 r = requests.get(
-                    'http://api.fixer.io/latest?base={}'.format(c1)
+                    'https://frankfurter.app/current?from={}'.format(c1)
                 )
 
                 if r.ok:
