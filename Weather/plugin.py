@@ -35,7 +35,7 @@ class Weather(callbacks.Plugin):
 
         try:
             client = ApixuClient(api_key)
-            response = client.getCurrentWeather(q=place)
+            response = client.current(q=place)
             last_updated = datetime.fromtimestamp(
                 response['current']['last_updated_epoch'],
             ).strftime('%Y-%m-%d %H:%M')
