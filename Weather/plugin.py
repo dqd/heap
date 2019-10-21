@@ -39,17 +39,21 @@ class Weather(callbacks.Plugin):
                 'query': place,
             }
             response = requests.get('http://api.weatherstack.com/current', params=params).json()
-            irc.reply(
-                'The current temperature in {l[name]}, '
-                '{l[country]} is {w[temperature]} °C '
-                '(feels like {w[feelslike]} °C). '
-                'Conditions: {w[weather_descriptions][0]}. '
-                'Humidity: {w[humidity]} %. '
-                'Wind: {w[wind_dir]} {w[wind_speed]} km/h ({l[localtime]}).'.format(
-                    w=response['current'],
-                    l=response['location'],
+
+            if response and 'current' in response:
+                irc.reply(
+                    'The current temperature in {l[name]}, '
+                    '{l[country]} is {w[temperature]} °C '
+                    '(feels like {w[feelslike]} °C). '
+                    'Conditions: {w[weather_descriptions][0]}. '
+                    'Humidity: {w[humidity]} %. '
+                    'Wind: {w[wind_dir]} {w[wind_speed]} km/h ({l[localtime]}).'.format(
+                        w=response['current'],
+                        l=response['location'],
+                    )
                 )
-            )
+            else:
+                irc.error(u'Unable to fetch weather data.')
         except Exception as e:
             irc.error(u'{}: {}'.format(type(e).__name__, unicode(e)))
 
