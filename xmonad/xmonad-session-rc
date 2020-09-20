@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#xrandr --output LVDS-1 --off --output DP-3 --mode 1920x1080 --output DP-2 --mode 1920x1080 --right-of DP-3
+
+setxkbmap cz dvorak
+ssh-add
+ssh-agent
+feh --bg-scale /home/dqd/documents/hubble2.png --bg-scale /home/dqd/documents/hubble1.png
+numlockx on
+xsetroot -cursor_name left_ptr
+xscreensaver -nosplash &
+unclutter &
+stalonetray &
