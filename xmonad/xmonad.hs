@@ -4,9 +4,9 @@ import XMonad.Prompt.Shell
 import XMonad.Actions.FloatKeys
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageDocks (avoidStruts, docks)
 import XMonad.Util.Run
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig (additionalKeys)
 import System.IO
 import System.Exit
 import qualified XMonad.StackSet as W
@@ -14,9 +14,9 @@ import qualified Data.Map as M
 
 main = do
     xmobar <- spawnPipe "xmobar"
-    xmonad $ defaultConfig
-        { workspaces=["1", "2", "3", "4", "5", "6", "7", "8"]
-        , manageHook=manageHook defaultConfig <+> myManageHook
+    xmonad $ docks def
+        { workspaces=map show [1..12]
+        , manageHook=manageHook def <+> myManageHook
         , layoutHook=smartBorders $ avoidStruts myLayout
         , logHook=dynamicLogWithPP $ xmobarPP {ppOutput=hPutStrLn xmobar}
         , terminal="konsole"
@@ -36,14 +36,14 @@ myManageHook = composeAll
 
 myLayout = Full ||| (Tall 1 (3/100) (1/2))
 
-myConfig = defaultXPConfig { font="-*-dejavu sans mono-bold-r-normal-*-12-*-*-*-*-*-*-"
-                           , bgColor="#111111"
-                           , fgColor="#FFFFFF"
-                           , bgHLight="#111111"
-                           , fgHLight="#C0C0C0"
-                           , promptBorderWidth=0
-                           , position=Top
-                           }
+myConfig = def { font="-*-dejavu sans mono-bold-r-normal-*-12-*-*-*-*-*-*-"
+               , bgColor="#111111"
+               , fgColor="#FFFFFF"
+               , bgHLight="#111111"
+               , fgHLight="#C0C0C0"
+               , promptBorderWidth=0
+               , position=Top
+               }
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
@@ -81,7 +81,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     ]
     ++ -- workspaces in screens
     [((m .|. modMask, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_F1 .. xK_F8]
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_F1 .. xK_F12]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++ -- switch between screens
     [((m .|. modMask, k), screenWorkspace s >>= flip whenJust (windows . f))
