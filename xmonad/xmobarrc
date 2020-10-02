@@ -1,7 +1,7 @@
 Config { font = "-*-dejavu sans mono-bold-r-normal-*-12-*-*-*-*-*-*-"
        , bgColor = "#111111"
        , fgColor = "#ffffff"
-       , position = Static {xpos=0, ypos=1056, width=1824, height=24}
+       , position = Static {xpos=0, ypos=1056, width=5664, height=24}
        , lowerOnStart = True
        , allDesktops = True
        , commands = [ Run StdinReader

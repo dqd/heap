@@ -1,6 +1,8 @@
 #!/bin/sh
 
-#xrandr --output LVDS-1 --off --output DP-3 --mode 1920x1080 --output DP-2 --mode 1920x1080 --right-of DP-3
+export QT_FONT_DPI=96
+
+xrandr --output DP-4 --mode 1920x1080 --output DP-3.1 --mode 1920x1080 --right-of DP-4 --output DP-3.2 --mode 1920x1080 --right-of DP-3.1
 
 setxkbmap cz dvorak
 ssh-add
