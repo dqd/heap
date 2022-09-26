@@ -38,7 +38,7 @@ class Weather(callbacks.Plugin):
                 'access_key': api_key,
                 'query': place,
             }
-            response = requests.get('http://api.weatherstack.com/current', params=params).json()
+            response = requests.get('http://api.weatherstack.com/current', params=params, timeout=10).json()
 
             if response and 'current' in response:
                 irc.reply(
