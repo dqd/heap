@@ -15,7 +15,7 @@ class ImagePig(callbacks.Plugin):
         api_key = self.registryValue("api_key")
         storage_days = self.registryValue("storage_days")
 
-        model = "simple"
+        model = ""
 
         for option, arg in optlist:
             if option == "model":
