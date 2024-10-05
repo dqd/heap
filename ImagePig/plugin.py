@@ -7,19 +7,28 @@ import supybot.callbacks as callbacks
 
 
 class ImagePig(callbacks.Plugin):
-    def image(self, irc, msg, args, prompt):
-        """<prompt>
+    def image(self, irc, msg, args, optlist, prompt):
+        """[--model <model>] <prompt>
 
-        Generates an image.
+        Generates an image based on the prompt.
         """
         api_key = self.registryValue("api_key")
         storage_days = self.registryValue("storage_days")
 
+        model = "simple"
+
+        for option, arg in optlist:
+            if option == "model":
+                model = arg
+
         try:
             r = requests.post(
-                "https://api.imagepig.com/",
+                "https://api.imagepig.com/{}".format(model),
                 headers={"Api-Key": api_key},
-                json={"positive_prompt": prompt, "storage_days": storage_days},
+                json={
+                    "positive_prompt": prompt,
+                    "storage_days": storage_days,
+                },
             )
 
             if r.ok:
@@ -34,7 +43,9 @@ class ImagePig(callbacks.Plugin):
         else:
             irc.error("No image was returned for the prompt.")
 
-    image = wrap(image, ["text"])
+    image = wrap(
+        image, [getopts({"model": ("somethingWithoutSpaces", "model")}), "text"]
+    )
 
 
 Class = ImagePig
