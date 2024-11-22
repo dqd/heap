@@ -28,6 +28,7 @@ if megahal is None:
 
     megahal = MegaHAL()
     megahal.train(training_data)  # this can take a while
+    megahal.sync()
 
 
 class MegaHAL(callbacks.Plugin):
@@ -43,6 +44,9 @@ class MegaHAL(callbacks.Plugin):
         irc.reply(megahal.get_reply(text))
 
     chat = wrap(chat, ["text"])
+
+    def die(self):
+        megahal.sync()
 
 
 Class = MegaHAL
