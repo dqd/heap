@@ -78,6 +78,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- quit, restart
     , ((modMask .|. shiftMask, xK_q     ), io (exitWith ExitSuccess)) -- %! Quit xmonad
     , ((modMask              , xK_q     ), spawn "xmonad --recompile; xmonad --restart") -- %! Restart xmonad
+
+    -- control of Clementine
+    , ((0, xK_Print), spawn "qdbus org.mpris.MediaPlayer2.clementine /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
     ]
     ++ -- workspaces in screens
     [((m .|. modMask, k), windows $ f i)
